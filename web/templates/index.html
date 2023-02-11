@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/input.css">
+        <link rel="shortcut icon" href="/ss.ico" type="image/x-icon">
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <title>Kisaan Guide</title>
+    </head>
+
+    <body class="bg-orange-200">
+        <h1 class="font-black text-6xl text-center align-middle pt-12 bg-amber-400 h-44 decoration-black decoration-solid decoration-4">WELCOME TO THE WORLD OF SEEDS AND CROPS</h1>
+
+
+        <div class="login items-center mt-16 grid grid-flow-row grid-cols-2 gap-16">
+
+
+            <!-- Main Input For Receiving Query to our ML -->
+            <div class="flex flex-row">
+                <form action="{{ url_for('predict')}}" class="ml-36 items-center " method="post">
+                    <label for="language" class="items-center block mt-10">
+                        <span class="font-mono text-3xl">Language: </span>
+                        <select name="language" id="language" class="h-11 w-36 text-xl text-center">
+                        
+                            <option value="no language">Select</option>
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Kannada">Kannada</option>
+                            
+                        </select>
+                    </label>
+
+                    <label for="N" class="items-center block mt-10">
+                        <span class="font-mono text-3xl">Enter the Soil Nitrogen Content here:</span>
+                        <input type="text" class="h-10 w-44 text-center" name="N" placeholder="N"
+                            required="required" /><br>
+                    </label>
+
+                    <label for="N" class="items-center block mt-10">
+                        <span class="font-mono text-3xl">Enter the Soil Phosphorus Content here:</span>
+                        <input type="text" class="h-10 w-44 text-center text-lg" name="P" placeholder="P"
+                            required="required" /><br>
+                    </label>
+
+                    <label for="N" class="items-center block mt-10">
+                        <span class="font-mono text-3xl">Enter the Soil Potassium Content here:</span>
+                        <input type="text" class="h-10 w-44 text-center" name="K" placeholder="K"
+                            required="required" /><br>
+                    </label>
+
+                    <label for="state" class="items-center block mt-10">
+                        <span class="font-mono text-3xl">Enter the State:</span>
+                        <input type="text" class="h-10 w-44 text-center" name="state" placeholder="state"
+                            required="required" /><br>
+                    </label>
+
+    
+
+                    <label for="soil" class="items-center block mt-10">
+                        <span class="font-mono text-3xl">Select the type of Soil:</span>
+                        <select name="soil" id="soil" class="h-11 text-xl text-center">
+                        
+                            <option value="no soil">Soil</option>
+                            <option value="Alluvial">Alluvial Soil</option>
+                            <option value="Black">Black soil</option>
+                            <option value="Red">Red/Yellow soil</option>
+                            <option value="Laterite">Laterite soil</option>
+                            <option value="Forest">Forest/Mountain soil</option>
+                            <option value="Arid">Arid soil</option>
+                        </select>
+                    </label>
+
+                    
+
+                    <button type="submit" class="bg-orange-600 w-28 mt-8 h-16 text-lg font-medium border-solid border-black rounded-xl border-4">Predict</button>
+                </form>
+
+                <br>
+                <br>
+
+
+            </div>
+            <div>
+                <img src="https://www.researchgate.net/publication/348540716/figure/fig1/AS:980534075355143@1610788949997/Major-soil-types-in-India-Source-https-wwwmapsofindiacom.jpg"
+                    class="w-[40rem] mt-8" alt="">
+            </div>
+
+        </div>
+        {{prediction_text}}
+
+    </body>
+
+</html>
